@@ -26,14 +26,11 @@ def move(my_history, their_history, my_score, their_score):
     # Analyze my_history and their_history and/or my_score and their_score.
     # Decide whether to return 'c' or 'b'.
     
-    if len (their_history) ==0:
-            return 'b'
-    elif my_score > 0 and their_score < 0:
-            return 'c'
+    if len(my_history) ==0: # If other colluded then also collude
+        return 'c'
     else:
-            return 'b'    
+        return 'b' # If betrayed then also betray   
         
-
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
@@ -69,6 +66,6 @@ if __name__ == '__main__':
               # the simulation (if working correctly) would have awarded 
               # 300 to me and -750 to them. This test will pass if and only if
               # move('bbb', 'ccc', 0, 0) returns 'b'.
-              my_score=1, 
-              their_score=-1,
+              my_score=0, 
+              their_score=0,
               result='c')             
